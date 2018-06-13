@@ -29,7 +29,7 @@ body {
 ul {
     padding-top: 20px;
 }
-@media only screen and (min-width: 775px) {
+@media only screen and (min-width: 1220px) {
     .cont {
         height: 100%;
         width: 100%;

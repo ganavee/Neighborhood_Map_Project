@@ -26,7 +26,7 @@
                   
                 </form>
 
-                <ul class="nav flex-column" data-bind="visible: toggle() === 'hide', foreach: optimisedList">
+                <ul class="nav  list flex-column" data-bind="visible: toggle() === 'hide', foreach: optimisedList">
                      <a href="#" class="badge badge-light size" data-bind="text: name, click: bounce"></a>        
                 </ul>
               </div>
@@ -35,6 +35,7 @@
         <div class="row2">
             <div class="map row2" id="map"></div>
         </div> 
+        <div id="map-error"></div>
     </div>
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -44,6 +45,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js" integrity="sha256-owX7sroiO/O1a7h3a4X29A1g3QgqdNvijRQ7V5TH45M=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="app.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCtiyQRuWb9RKoFWc5m85G5Hs5gfS-Mop8&v=3&callback=startApp" onerror="errorHandlingMap()"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCtiyQRuWb9RKoFWc5m85G5Hs5gfS-Mop8&v=3&callback=startApp" onerror="maperror()"></script>
 </body>
 </html>
