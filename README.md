@@ -18,4 +18,9 @@ This single page application shows a map of places in Halasuru Bangalore. This a
 * The app's interface is intuitive to use. For example, the input text area to filter locations is easy to locate. It should be easy to understand what set of locations is being filtered.
 * Google maps and Forsquare errors are handled gracefully.
 
+## Steps to run the code
+
+* Clone the repo or download the zip file.
+* open the index.html with your favourite web browser.
+
 ![Screenshot](img/mapproject.png)
