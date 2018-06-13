@@ -19,6 +19,16 @@ body {
     height: 100%;
     
 }
+
+.size {
+    font-size: 20px;
+    color: #43aa8b;
+    padding: 10px;
+}
+
+ul {
+    padding-top: 20px;
+}
 @media only screen and (min-width: 775px) {
     .cont {
         height: 100%;
