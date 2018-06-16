@@ -69,6 +69,9 @@ Location = function(data) {
         self.street = results.location.formattedAddress[0] || 'No Address Provided';
         self.city = results.location.formattedAddress[1] || 'No Address Provided';
         self.phone = results.contact.phone || 'No Phone Provided';
+        if(self.phone == 'No Phone Provided') {
+        	self.phone = '';
+        }
     }).fail(function () {
         $('.list').html('There was an error with the Foursquare API call. Please refresh the page and try again to load Foursquare data.');
     });
