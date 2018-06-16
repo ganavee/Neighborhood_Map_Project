@@ -68,10 +68,7 @@ Location = function(data) {
         }
         self.street = results.location.formattedAddress[0] || 'No Address Provided';
         self.city = results.location.formattedAddress[1] || 'No Address Provided';
-        //self.phone = results.contact.phone || 'No Phone Provided';
-        //if(self.phone == 'No Address Provided' ){
-           // self.phone = '';
-        //}
+        self.phone = results.contact.phone || 'No Phone Provided';
     }).fail(function () {
         $('.list').html('There was an error with the Foursquare API call. Please refresh the page and try again to load Foursquare data.');
     });
@@ -80,9 +77,8 @@ Location = function(data) {
     this.contentString = '<div class="info-window-content"><div class="title"><b>' + data.name + "</b></div>" +
         '<div class="content"><a href="' + self.URL + '">' + self.URL + "</a></div>" +
         '<div class="content">' + self.street + "</div>" +
-        '<div class="content">' + self.city + "</div>" 
-        //+
-        //'<div class="content">' + self.phone + "</div></div>";
+        '<div class="content">' + self.city + "</div>" +
+        '<div class="content">' + self.phone + "</div></div>";
 
     // Puts the content string inside infowindow.
     this.infoWindow = new google.maps.InfoWindow({content: self.contentString});
@@ -109,9 +105,8 @@ Location = function(data) {
         self.contentString = '<div class="info-window-content"><div class="title"><b>' + data.name + "</b></div>" +
             '<div class="content"><a href="' + self.URL +'">' + self.URL + "</a></div>" +
             '<div class="content">' + self.street + "</div>" +
-            '<div class="content">' + self.city + "</div>" 
-            //+
-            //'<div class="content"><a href="tel:' + self.phone +'">' + self.phone +"</a></div></div>";
+            '<div class="content">' + self.city + "</div>" +
+            '<div class="content"><a href="tel:' + self.phone +'">' + self.phone +"</a></div></div>";
 
         self.infoWindow.setContent(self.contentString);
 
@@ -131,11 +126,6 @@ Location = function(data) {
 
 //viewmodel
 function ViewModel(){
-    window.gm_authFailure = function() {
-        // remove the map div or maybe call another API to load map
-       // maybe display a useful message to the user
-       alert('Google maps failed to load!');
-    }
 
     var self = this;
 
@@ -258,21 +248,9 @@ function ViewModel(){
     }, self);
 }
 
-document.getElementById("map").addEventListener("error", maperror);
-
 // Error handling if map doesn't load.
-function maperror() {
-    console.log("hey man");
-    //$('#map').innerhtml('We had trouble loading Google Maps. Please refresh your browser and try again.');
-    //alert("We had trouble loading Google Maps. Please refresh your browser and try again.");
-   // document.getElementById('map').style.display = 'block';
-    var errorMsg = 'Sorry, no worky. Please refresh and try again!';
-
-    var mapDiv = document.getElementByClassName('row2');
-    var errorDiv = document.createElement('p');
-    errorDiv.innerHTML = errorMsg;
-    mapDiv.appendChild(errorDiv);
-    document.getElementByClassName('row2').innerHTML = 'Sorry, something went wrong. Please try again later.';
+function errorHandlingMap() {
+    $('#map').html('We had trouble loading Google Maps. Please refresh your browser and try again.');
 }
 //biinding
 function startApp() {
